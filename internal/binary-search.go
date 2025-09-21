@@ -4,7 +4,7 @@ import "fmt"
 
 func BinarySearch(arr []int, target int) (int, error) {
 
-	// Contagem: 2 operações de atribuição, 1 operação de subtração e 1 operação de tamanho do array = 4,
+	// Contagem: 2 operações de atribuição, 1 operação de subtração e 1 operação de tamanho do array = 4 constantes,
 	left, right := 0, len(arr)-1 // C₁ = 4
 
 	// Contagem: n operações, log₂(n)
@@ -32,9 +32,7 @@ func BinarySearch(arr []int, target int) (int, error) {
 	// Contagem: 1 operação de retorno
 	return -1, fmt.Errorf("target not found") // C₉ x 1
 }
-
-//f(n) = C₁ + (C₂ + C₃ + C₄ + C₆) × log₂(n) + (C₇ + C₈) × log₂(n)/2 + C₉
-//Simplificando: f(n) = c₁ + c₂ × log₂(n)
+// f(n) = 5 + 9 * log₂(n)
 
 // Melhor caso: encontra o target na primeira iteração, f(n) = O(n)
 // Pior caso: não encontra o target, f(n) = O(log(n))
