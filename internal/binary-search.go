@@ -10,7 +10,7 @@ func BinarySearch(arr []int, target int) (int, error) {
 	// Contagem: n operações, log₂(n)
 	for left <= right { // C₂ x log₂(n)
 		// Contagem: 3 operações de atribuição (soma, divisão e atribuição)
-		mid := (left + right) / 2 // C₃ x log₂(n)
+		mid := (left + right) / 2  // C₃ x log₂(n) -> atribuicao, soma e divsao
 
 		// 1 acesso de array + 1 comparação de target = 2, C₄ x log₂(n)
 		if arr[mid] == target { // C₄ x log₂(n)
@@ -32,12 +32,8 @@ func BinarySearch(arr []int, target int) (int, error) {
 	// Contagem: 1 operação de retorno
 	return -1, fmt.Errorf("target not found") // C₉ x 1
 }
-// f(n) = 5 + 9 * log₂(n)
+// f(n) = 5 + 10 * log₂(n)
 
-// Melhor caso: encontra o target na primeira iteração, f(n) = O(n)
-// Pior caso: não encontra o target, f(n) = O(log(n))
-// Caso médio: f(n) = O(log(n))
-
-// Big-O: O(log(n))
-// Big-Omega: O(1)
-// Big-Theta: O(log(n))
+// Big-O: O(log(n)) - Pior caso
+// Big-Omega: O(1) - Melhor caso
+// Big-Theta: O(log(n)) - Caso médio
